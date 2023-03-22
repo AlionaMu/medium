@@ -1,4 +1,5 @@
-import { LoadingModule } from './../errorMessage copy/loading.module';
+import { PaginationModule } from './../pagination/pagination.module';
+import { LoadingModule } from './../loading/loading.module';
 import { RouterModule } from '@angular/router';
 import { FeedService } from './services/feed.service';
 import { StoreModule } from '@ngrx/store';
@@ -19,7 +20,8 @@ import { ErrorMessageModule } from '../errorMessage/errorMessage.module';
     StoreModule.forFeature('feed', reducers),
     RouterModule,
     ErrorMessageModule,
-    LoadingModule
+    LoadingModule,
+    PaginationModule
   ],
   exports: [FeedComponent],
   providers: [FeedService]

@@ -13,6 +13,8 @@ import { AuthModule } from './auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { routerReducer } from '@ngrx/router-store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,11 @@ import {  HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     HttpClientModule,
     EffectsModule.forRoot([]),
     TopBarModule,
-    GlobalFeedModule
+    GlobalFeedModule,
+    StoreModule.forRoot({
+      router: routerReducer
+    }),
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [
     PersistanceService,

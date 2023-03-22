@@ -2,5 +2,5 @@ import { ArticleInterface } from "src/app/shared/types/article.interface"
 
 export interface GetFeedResponseInterface {
   articles: ArticleInterface[]
-  articlesCount: number
+  articlesCount: number | undefined
 }
