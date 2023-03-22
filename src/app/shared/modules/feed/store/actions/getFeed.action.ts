@@ -1,4 +1,3 @@
-import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 import { createAction, props } from "@ngrx/store";
 import { ActionTypes } from "../actionTypes";
 import { GetFeedResponseInterface } from '../../types/getFeedResponse.interface';

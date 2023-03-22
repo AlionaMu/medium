@@ -1,0 +1,27 @@
+import { Injectable } from "@angular/core"
+import { createEffect, ofType, Actions } from "@ngrx/effects"
+import { switchMap, map, catchError, of } from "rxjs"
+import { PopularTagType } from "src/app/shared/types/popularTag.type"
+import { PopularTagsService } from "../../services/popularTags.service"
+import { getPopularTagsAction, getPopularTagsFailureAction, getPopularTagsSuccessAction } from "../actions/getPopularTags.action"
+
+@Injectable()
+export class GetPopularTagsEffect {
+  getPopularTags$ = createEffect(() => this.actions$.pipe(
+    ofType(getPopularTagsAction),
+    switchMap(({}) => {
+      return this.popularTagsService.getPopularTags().
+      pipe(
+        map((popularTags: PopularTagType[]) => {
+          return getPopularTagsSuccessAction({popularTags})
+        }),
+        catchError(() => {
+          return of(getPopularTagsFailureAction())
+        })
+      )
+    })
+  ))
+
+  constructor(private actions$: Actions,
+     private popularTagsService: PopularTagsService) {}
+}

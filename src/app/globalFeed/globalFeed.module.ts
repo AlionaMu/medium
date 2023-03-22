@@ -1,3 +1,4 @@
+import { PopularTagsModule } from './../shared/modules/popularTags/popularTags.module';
 import { BannerModule } from './../shared/modules/banner/banner.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from "@angular/core";
@@ -20,7 +21,8 @@ const routes: Routes = [
     CommonModule,
     FeedModule,
     RouterModule.forChild(routes),
-    BannerModule
+    BannerModule,
+    PopularTagsModule
   ]
 })
 export class GlobalFeedModule {}
